@@ -1,0 +1,10 @@
+{% extends "_layouts/elementindex" %}
+{% set elementType = 'friendventure\\leads\\elements\\Lead' %}
+
+{% set title = "Leads" %}
+
+{% block actionButton %}
+    <div class="btngroup">
+        <a class="btn submit add icon" href="{{ cpUrl('leads/lead/new') }}">New lead</a>
+    </div>
+{% endblock %}

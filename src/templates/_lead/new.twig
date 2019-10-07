@@ -1,0 +1,132 @@
+{% extends "_layouts/cp" %}
+
+{% import "_includes/forms" as forms %}
+
+{% set title = "Create a new lead" %}
+{% set fullPageForm = true %}
+
+{% block actionButton %}
+    <div class="buttons">
+        <div class="btngroup submit">
+            <input type="submit" class="btn submit" value="{{ 'Save'|t('calendar') }}">
+
+            <div class="btn submit menubtn"></div>
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a class="formsubmit" data-redirect="{{ url('calendar/calendars/new') }}">
+                            {{ "Save and add another"|t('calendar') }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    {{ forms.hidden({
+        name: 'action',
+        value: 'leads/lead/save-lead',
+    })}}
+
+    {{ redirectInput('leads/dashboard') }}
+
+    {{ forms.selectField({
+        label: 'Geschlecht',
+        name: 'gender',
+        options: {
+            1: 'Männlich',
+            2: 'Weiblich'
+        },
+        value: 1,
+    }) }}
+
+    {{ forms.textField({
+        first:       true,
+        required:    true,
+        label:       'Vorname',
+        id:          'first-name',
+        name:        'firstName',
+        placeholder: 'Firstname',
+        autofocus:   true,
+        required: true,
+    })}}
+
+    {{ forms.textField({
+        label:       'Nachname',
+        id:          'last-name',
+        name:        'lastName',
+        placeholder: 'Lastname',
+        autofocus:   true,
+        required: true,
+    })}}
+
+    {{ forms.dateField({
+        label: 'Geburtstag',
+        name: 'birthday',
+        value: now,
+    }) }}
+
+    {{ forms.textField({
+        label:       'Email',
+        id:          'email',
+        name:        'email',
+        placeholder: 'Email',
+        autofocus:   true,
+        required: true,
+    })}}
+
+    {{ forms.textField({
+        required:    true,
+        label:       'Straße + Hausnummer',
+        id:          'address',
+        name:        'address',
+        placeholder: 'Address',
+        autofocus:   true,
+    })}}
+
+    {{ forms.textField({
+        required:    true,
+        label:       'PLZ',
+        id:          'postcode',
+        name:        'postcode',
+        placeholder: 'postcode',
+        autofocus:   true,
+    })}}
+
+    {{ forms.textField({
+        required:    true,
+        label:       'Stadt',
+        id:          'city',
+        name:        'city',
+        placeholder: 'city',
+        autofocus:   true,
+    })}}
+
+    {{ forms.selectField({
+        label: 'Studienort',
+        instructions: 'Wähle den Ort der Studie aus',
+        name: 'studyCiy',
+        options: {
+            1: 'Schenefeld',
+            2: 'Elmshorn'
+        },
+        value: 1,
+    }) }}
+
+    {{ forms.lightswitchField({
+        label: 'Datenschutz bestätigt',
+        instructions: 'Aktiviere die Option, wenn der Lead den Datenschutz bestätigt hat',
+        name: 'gdpr',
+        on: true,
+    }) }}
+
+
+
+{% endblock %}
+
+{% js %}
+    console.log("ok");
+{% endjs %}

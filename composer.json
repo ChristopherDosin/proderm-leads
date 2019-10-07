@@ -1,0 +1,40 @@
+{
+    "name": "friendventure/leads",
+    "description": "Lead plugin",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "leads"
+    ],
+    "support": {
+        "docs": "???",
+        "issues": "???"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Friendventure GmbH",
+            "homepage": "https://friendventure.de"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "friendventure\\leads\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Leads",
+        "handle": "leads",
+        "hasCpSettings": false,
+        "hasCpSection": true,
+        "changelogUrl": "???",
+        "class": "friendventure\\leads\\Leads"
+    }
+}
